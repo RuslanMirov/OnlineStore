@@ -1,9 +1,9 @@
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import App from '../components/App.jsx'
+import AppComponent from '../components/App.jsx'
 import * as booksActions from '../actions/books'
 import orderBy from 'lodash/orderBy'
-
+import getData from '../hoc/getData'
 // Сортировка по значению (цена, алфавитный порядок)
 const sortBy = (books, filterBy) => {
   switch (filterBy) {
@@ -46,7 +46,7 @@ const MapDispatchToProps = dispatch => ({
   ...bindActionCreators(booksActions, dispatch)
 })
 
-export default connect(MapStateToProps, MapDispatchToProps)(App);
+export default connect(MapStateToProps, MapDispatchToProps)(getData(AppComponent));
 
 /*
 1

@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import axios from 'axios'
 import { Container } from 'semantic-ui-react'
 import BookCard from '../containers/BookCard'
 import { Card } from 'semantic-ui-react'
@@ -8,14 +7,6 @@ import Menu from '../containers/Menu'
 
 
 class App extends Component {
-
-componentWillMount(){
-  const { setBooks } = this.props;
-  // ES6 деструктивное присваевание эквивалент response => {response.data}
-  axios.get('/books.json').then(({ data }) => {
-    setBooks(data);
-  })
-}
 
 render(){
   const { books, isReady, showSearh} = this.props;
